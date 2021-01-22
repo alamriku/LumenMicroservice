@@ -44,7 +44,13 @@ class AuthorController extends Controller
 
     public function update(Request $request)
     {
-        
+        $rules = [
+            'name' => 'max:2',
+            'gender' => 'in:male,female',
+            'country' => 'max:2',
+        ];
+
+        $this->validate($request, $rules);
     }
 
     public function destroy($author)
